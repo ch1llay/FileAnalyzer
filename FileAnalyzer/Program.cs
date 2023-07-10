@@ -76,12 +76,10 @@ void GetInfo(Dictionary<string, List<FileInfo>> filesByExtensions)
 }
 
 
-var path = ".";
-
 ILogger logger = new ConsoleLogger();
 
 Console.WriteLine("enter dir: ");
-var dir = Console.ReadLine();
+var dir = Console.ReadLine()?.Replace('"'.ToString(), "");
 var filesExtensions = GetFileExtensions(dir);
 Do(()=>GetInfo(filesExtensions));
 Console.WriteLine("enter file extension for getting lines count: ");
